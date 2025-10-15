@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --portfolio-dark: #1a0b2e;
+  --portfolio-black: #000000;
+  --portfolio-purple: #2b0b3a;
+  --portfolio-darker: #11071f;
+  --neon-purple: #8b5cf6;
+  --facebook-blue: #1877f2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-image: url(./assets//Background.png);
+}
+
+.bg-portfolio-dark {
+  background-color: var(--portfolio-dark);
+}
+
+.bg-portfolio-black {
+  background-color: var(--portfolio-black);
+}
+
+.bg-portfolio-purple {
+  background-color: var(--portfolio-purple);
+}
+
+.bg-portfolio-darker {
+  background-color: var(--portfolio-darker);
+}
+
+.text-neon-purple {
+  color: var(--neon-purple);
+}
+
+.text-facebook-blue {
+  color: var(--facebook-blue);
+}
+
+.bg-neon-purple {
+  background-color: var(--neon-purple);
+}
+
+.bg-facebook-blue {
+  background-color: var(--facebook-blue);
+}
+
+.border-neon-purple {
+  border-color: var(--neon-purple);
+}
+
+.bg-glow-purple {
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.3) 0%,
+    transparent 70%
+  );
+}
