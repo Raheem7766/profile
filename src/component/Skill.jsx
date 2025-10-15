@@ -11,6 +11,16 @@ export default function Skill() {
 
   useEffect(() => {
     const fetchFeaturedProjects = async () => {
+      // Check if we're in development environment
+      const isDevelopment = window.location.hostname === 'localhost';
+      
+      if (!isDevelopment) {
+        // In production, use static data or skip API calls
+        setFeaturedProjects([]);
+        setLoading(false);
+        return;
+      }
+
       try {
         const response = await fetch(
           "http://localhost:3000/api/projects/featured?limit=2"

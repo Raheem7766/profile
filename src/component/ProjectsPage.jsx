@@ -14,6 +14,16 @@ export default function ProjectsPage() {
   // Fetch all projects from API
   useEffect(() => {
     const fetchProjects = async () => {
+      // Check if we're in development environment
+      const isDevelopment = window.location.hostname === 'localhost';
+      
+      if (!isDevelopment) {
+        // In production, use static data or skip API calls
+        setProjects([]);
+        setLoading(false);
+        return;
+      }
+
       try {
         const response = await fetch('http://localhost:3000/api/projects?limit=20');
         const data = await response.json();

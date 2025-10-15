@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { HiCursorClick } from 'react-icons/hi'
 import { FaArrowLeft, FaExternalLinkAlt, FaGithub } from 'react-icons/fa'
-import Port from "../assets/Port.png";
+import Port from "../assets/port.png";
 import Portfolio from "../assets/Portfolio-1.png";
 
 export default function ProjectDetailPage() {
@@ -15,6 +15,15 @@ export default function ProjectDetailPage() {
   // Fetch project details from API
   useEffect(() => {
     const fetchProject = async () => {
+      // Check if we're in development environment
+      const isDevelopment = window.location.hostname === 'localhost';
+      
+      if (!isDevelopment) {
+        // In production, redirect to projects page since we don't have backend data
+        navigate('/projects');
+        return;
+      }
+
       try {
         const response = await fetch(`http://localhost:3000/api/projects/slug/${projectId}`);
         const data = await response.json();
@@ -36,7 +45,7 @@ export default function ProjectDetailPage() {
     if (projectId) {
       fetchProject();
     }
-  }, [projectId]);
+  }, [projectId, navigate]);
 
   // Show loading state
   if (loading) {
