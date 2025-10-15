@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { HiCursorClick } from "react-icons/hi";
 import Gradient from "../assets/Gradient.png";
-import Port from "../assets/Port.png";
+import Port from "../assets/port.png";
 import Portfolio from "../assets/Portfolio-1.png";
 
 export default function ProjectsPage() {
@@ -39,7 +39,7 @@ export default function ProjectsPage() {
     navigate(`/project-detail/${projectSlug}`);
     window.scrollTo(0, 0);
   };
-  
+
   return (
     <>
       {/* Mobile and Tablet Layout (hidden on lg and xl) */}
